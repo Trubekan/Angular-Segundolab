@@ -1,0 +1,53 @@
+<style>
+  .formulario {
+    width: 300px;
+    margin: 100px auto 0;
+    padding: 20px;
+    background-color: #4dd420;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .formulario label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .formulario input[type="text"],
+  .formulario input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .formulario button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .formulario button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+</style>
+
+<div class="formulario">
+  <form (submit)="confirmarEnvio()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required (input)="verificarCampos()">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="email" name="email" required (input)="verificarCampos()">
+
+    <button type="submit" [disabled]="botonDesactivado">Enviar</button>
+  </form>
+</div>
